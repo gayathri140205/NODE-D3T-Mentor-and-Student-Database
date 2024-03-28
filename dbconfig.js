@@ -1,7 +1,12 @@
 const mongoose = require("mongoose");
-const URI= "mongodb://localhost:27017/taskee3";
+
 
 function connectToDatabase(){
+    const URI = 
+    process.env.NODE_ENV === "  production"
+     ?process.env.MONGODB_URI
+     :"mongodb://localhost:27017/taskee3";
+    console.log(process.env.NODE_ENV);
    mongoose
    .connect (URI)
    .then((response)=>{
