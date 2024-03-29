@@ -78,10 +78,10 @@ TaskRouter.post("/mentor", async (req, res) => {
 
   
 // Show the previously assigned mentor for a particular student
-TaskRouter.get("/student/:studentId/pMentor", async (req, res) => {
+TaskRouter.get("/student/:studentId/Mentor", async (req, res) => {
     try {
       const student = await Student.findById(req.params.studentId).populate(
-        "pMentor"
+        "Mentor"
       );
       if (!student) {
         return res.status(404).json({ error: "No previous Mentor Available" });
